@@ -1,0 +1,10 @@
+首先定义了
+——encoder：将输入的gene_pos expression cell_embs编码为 细胞嵌入和基因嵌入
+——decoder：将transformer的output解码为最终输出,既深度缩放，生成基因表达值，类别维度压缩，细胞嵌入平均，分类任务，提取基因嵌入
+——forward：定于前进步骤 
+——configure-optimizer：配置优化器和学习率调整器
+——on_fit_start：训练开始前初始化
+——training-step：定义train循环的框架 目的是得出loss
+——full-training：实现训练步骤的具体步骤，包括前向传播、损失计算和多种训练任务。
+——compute_loss：用于计算在上面full-training步骤中的各种损失的具体实现
+——optimizer_step：自定义优化器的步骤，在每次优化器更新时被调用

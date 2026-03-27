@@ -1,0 +1,12 @@
+该文档是一个Python代码文件，定义了`scPrint`类，用于单细胞生物学研究及基因调控网络推断，涉及模型构建、训练、验证和预测等功能。
+1. **导入模块**：引入`lightning`、`pandas`、`torch`等多个库，用于深度学习模型构建、数据处理和计算。
+
+2. **类定义和初始化**：`scPrint`类继承自`L.LightningModule`和`PyTorchModelHubMixin`，初始化函数`__init__`设置模型参数，包括基因列表、生物种类、嵌入层设置、变压器类型等，并初始化各类编码器、解码器、注意力机制和优化器等。
+
+3. **模型方法**
+    - **编码与解码**：`_encoder`方法对输入进行编码，`_decoder`方法根据变压器输出解码得到最终输出，`forward`方法整合编码和解码过程。
+    - **优化器配置**：`configure_optimizers`根据配置选择优化器，并可设置学习率调度器。
+    - **训练与验证**：`training_step`和`_full_training`定义训练步骤，计算各种损失；`validation_step`和`on_validation_epoch_end`定义验证过程；`test_step`和`on_test_epoch_end`用于测试；`predict_step`和`_predict`用于预测。
+    - **其他方法**：`optimizer_step`调整优化器参数；`get_cell_embs`获取细胞嵌入；`_generate`生成表达谱；`log_adata`记录预测数据；`_predict_denoised_expression`预测去噪后的表达。
+
+4. **整体功能**：该模型通过整合多种组件，实现对单细胞数据的处理和分析，包括基因表达的重建、细胞类型预测、对抗训练以校正批次效应等，在单细胞生物学研究中具有重要意义。 
