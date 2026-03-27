@@ -1,0 +1,4 @@
+可以回看GNN  配置pytorch 
+不过可以看一下有没有安装了  其实是安装
+(scprint) cai026@ubuntu:~/scprint$ python -c "import torch; print(torch.version.cuda)"
+12.1
